@@ -1,0 +1,26 @@
+{
+  "name": "hapi-blog-api-v2",
+  "version": "1.0.0",
+  "description": "API for blog app",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "hapijs",
+    "hapi",
+    "node",
+    "api",
+    "mongodb",
+    "javascript"
+  ],
+  "author": "Kemal Erdem",
+  "license": "ISC",
+  "dependencies": {
+    "hapi": "^17.5.0"
+  },
+  "devDependencies": {
+    "flow": "^0.2.3",
+    "flow-bin": "^0.73.0"
+  }
+}
