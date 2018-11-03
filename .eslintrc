@@ -1,3 +1,27 @@
 {
-  "extends": "airbnb-base"
+  "parserOptions": {
+    "ecmaVersion": 2016,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "impliedStrict": true
+    }
+  },
+  "env": {
+    "browser": false,
+    "node": true,
+    "jest/globals": true
+  },
+  "plugins": ["flowtype", "jest"],
+  "rules": {
+    "prefer-destructuring": 1,
+    "prefer-template": 1,
+    "eqeqeq": 1,
+    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+    "no-use-before-define": 0
+  },
+  "extends": [
+    "plugin:flowtype/recommended",
+    "plugin:jest/recommended",
+    "airbnb-base"
+  ]
 }
