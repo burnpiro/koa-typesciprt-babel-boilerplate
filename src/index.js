@@ -1,11 +1,16 @@
 // @flow
+import dotenv from 'dotenv';
+import Hapi from 'hapi';
+import DBConnection from './db';
+import routes from './routes';
 
-const Hapi = require('hapi');
+dotenv.config();
+const db = DBConnection();
 
 // Create a server with a host and port
 const server = Hapi.server({
-  host: 'localhost',
-  port: 8000,
+  host: process.env.SERVER_HOST || 'localhost',
+  port: process.env.SERVER_POST || 8000,
 });
 
 // Start the server
