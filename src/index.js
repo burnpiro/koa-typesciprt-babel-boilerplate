@@ -13,6 +13,8 @@ const server = Hapi.server({
   port: process.env.SERVER_POST || 8000,
 });
 
+server.route(routes);
+
 // Start the server
 async function start() {
   try {
