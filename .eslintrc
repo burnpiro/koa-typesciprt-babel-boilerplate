@@ -11,20 +11,23 @@
     "node": true,
     "jest/globals": true
   },
-  "plugins": ["flowtype", "jest"],
-  "rules": {
-    "prefer-destructuring": 1,
-    "prefer-template": 1,
-    "eqeqeq": 1,
-    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
-    "object-curly-newline": ["error", { "multiline": true }],
-    "no-use-before-define": 0,
-    "consistent-return": 0,
-    "no-underscore-dangle": 0
-  },
+//  "rules": {
+//    "prefer-destructuring": 1,
+//    "prefer-template": 1,
+//    "eqeqeq": 1,
+//    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+//    "object-curly-newline": ["error", { "multiline": true }],
+//    "no-use-before-define": 0,
+//    "consistent-return": 0,
+//    "no-underscore-dangle": 0
+//  },
   "extends": [
     "plugin:flowtype/recommended",
     "plugin:jest/recommended",
-    "airbnb-base"
-  ]
+    "airbnb-base",
+    "prettier", "plugin:prettier/recommended"],
+  "plugins": ["flowtype", "jest", "prettier"],
+  "rules": {
+    "prettier/prettier": ["error"]
+  }
 }
