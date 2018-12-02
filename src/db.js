@@ -5,7 +5,7 @@ import paths from '../config/paths';
 
 const connect = () => {
   mongoose.connect(
-    paths.mongoDBURL,
+    paths.mongoDBURLWithName,
     { useNewUrlParser: true }
   );
   mongoose.set('useCreateIndex', true);
@@ -14,7 +14,7 @@ const connect = () => {
 
   db.on('error', console.error.bind(console, 'connection error'));
   db.once('open', () => {
-    console.log(`Connection with database succeeded at ${paths.mongoDBURL}`);
+    console.log(`Connection with database succeeded at ${paths.mongoDBURLWithName}`);
   });
 
   return db;
