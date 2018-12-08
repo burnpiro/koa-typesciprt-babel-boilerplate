@@ -1,42 +1,59 @@
 # Hapi Blog API
-> Implementation for blog API in HapiJS
+> NodeJS blog API Boilerplate based on HapiJS and MongoDB
 
-[![NPM Version][npm-image]][npm-url]
+
+![[node][node-image]][node-image]
 [![Build Status][travis-image]][travis-url]
-[![Downloads Stats][npm-downloads]][npm-url]
 ![Licence][licence]
-
-One to two paragraph statement about your product and what it does.
-
-![](header.png)
 
 ## Installation
 
 OS X & Linux:
 
-```sh
-npm install my-crazy-module --save
+```
+yarn
+yarn build
+yarn run start-prod
 ```
 
-Windows:
+## Database migrations
 
-```sh
-edit autoexec.bat
+To run all migrations just run:
+```
+yarn run db-migration
 ```
 
-## Usage example
+If you want to upgrade to specific version use:
+```
+yarn run db-migration up <migration-version-name>
+```
 
-A few motivating and useful examples of how your product can be used. Spice this up with code blocks and potentially more screenshots.
+If you want to downgrade to version use:
+```
+yarn run db-migration down <migration-version-name>
+```
 
-_For more examples and usage, please refer to the [Wiki][wiki]._
+You can always check your current version in `.migrate` file
 
 ## Development setup
 
-Describe how to install all development dependencies and how to run an automated test-suite of some kind. Potentially do this for multiple platforms.
+To run dev environment:
 
-```sh
-yarn
-npm test
+```
+yarn run start
+```
+
+## Testing
+
+Test env is using Jest, if you want to run tests just call:
+
+```
+yarn run test
+```
+
+or (to run without watcher and with test coverage report)
+```
+yarn run test-coverage
 ```
 
 ## Release History
@@ -59,10 +76,7 @@ Distributed under the MIT license.
 5. Create a new Pull Request
 
 <!-- Markdown link & img dfn's -->
-[npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/datadog-metrics
-[npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
+[node-image]: https://img.shields.io/badge/node-10.x-brightgreen.svg?style=flat-square
 [travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
 [travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
-[wiki]: https://github.com/burnpiro/hapi-blog-api-v2/wiki
 [licence]: https://img.shields.io/github/license/mashape/apistatus.svg
