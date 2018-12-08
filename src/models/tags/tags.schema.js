@@ -5,8 +5,8 @@ import slug from 'slug';
 
 const { Schema } = mongoose;
 const tagSchema = new Schema({
-  _id: { type: String, trim: true, unique: true, lowercase: true },
-  name: { type: String, required: true, trim: true },
+  slug: { type: String, trim: true, unique: true, lowercase: true },
+  name: { type: String, required: true, trim: true }
 });
 
 tagSchema.pre('save', function preSaveTag(next) {
@@ -14,8 +14,10 @@ tagSchema.pre('save', function preSaveTag(next) {
     return next();
   }
 
-  this._id = slug(this.name, { lower: true });
-  next();
+  this.slug = slug(this.name, { lower: true });
+  return next();
 });
+
+tagSchema.index({ slug: 1 });
 
 export default mongoose.model('Tag', tagSchema);
