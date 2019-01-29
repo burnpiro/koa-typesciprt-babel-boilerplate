@@ -33,7 +33,15 @@ If you want to downgrade to version use:
 yarn run db-migration down <migration-version-name>
 ```
 
-You can always check your current version in `.migrate` file
+If you want to create migration (follow [https://github.should typescript be a dev dependencycom/tj/node-migrate#creating-migrations](https://github.com/tj/node-migrate#creating-migrations)):
+```
+yarn run db-migration create <name>
+```
+
+You can always check your current version in `.migrate` file or run:
+```
+yarn run db-migration list
+```
 
 ## Development setup
 
