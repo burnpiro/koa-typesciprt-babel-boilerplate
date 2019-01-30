@@ -3,5 +3,8 @@
     "tslint:recommended",
     "tslint-config-airbnb-base",
     "tslint-config-prettier"
-  ]
+  ],
+  "rules": {
+    "no-console": false
+  }
 }

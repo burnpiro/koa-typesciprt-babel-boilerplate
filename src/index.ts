@@ -10,16 +10,15 @@ dotenv.config();
 const SERVER_PORT = process.env.SERVER_POST || PORT;
 const SERVER_HOST = process.env.SERVER_HOST || HOST;
 const server = new Koa();
-// const db = DBConnection();
 
 const config = {
-  domain: 'localhost',
+  domain: SERVER_HOST,
   https: {
     options: {
       cert: fs.readFileSync(path.resolve(process.cwd(), 'server.crt'), 'utf8').toString(),
       key: fs.readFileSync(path.resolve(process.cwd(), 'server.key'), 'utf8').toString(),
     },
-    port: 7979,
+    port: SERVER_PORT,
   },
 };
 
@@ -34,7 +33,7 @@ async function start() {
     const httpsServer = https.createServer(config.https.options, serverCallback);
     httpsServer
       .listen(config.https.port, (err: Error) => {
-        if (!!err) {
+        if (err) {
           console.error('HTTPS server FAIL: ', err, (err && err.stack));
         }
         else {

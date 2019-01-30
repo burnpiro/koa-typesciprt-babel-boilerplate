@@ -1,5 +1,5 @@
-# Hapi Blog API
-> NodeJS blog API Boilerplate based on HapiJS and MongoDB
+# Koa Typescript Babel Boilerplate API
+> NodeJS blog API Boilerplate based on KoaJS
 
 
 ![[node][node-image]][node-image]
@@ -8,39 +8,47 @@
 
 ## Installation
 
-OS X & Linux:
+OS X & Linux (make sure that you've got ssl certificate files first, instruction below):
 
 ```
-yarn
-yarn build
-yarn run start-prod
+npm install
+npm run build
+npm run start-prod
 ```
+
+## Generate SSL certificate
+
+To generate local certificate you have to install [openssl](https://www.openssl.org/). If that is done run `./generate-openssl.sh` to create certificate files. You have to follow instructions during generation.
+
+If you want to generate ssl certificate for your production environment you should use one of many solutions like [Let's Encrypt](https://letsencrypt.org/).
+
+At the end you need `server.crt` and `server.key` files to run server :)
 
 ## Database migrations
 
 To run all migrations just run:
 ```
-yarn run db-migration
+npm run db-migration
 ```
 
 If you want to upgrade to specific version use:
 ```
-yarn run db-migration up <migration-version-name>
+npm run db-migration up <migration-version-name>
 ```
 
 If you want to downgrade to version use:
 ```
-yarn run db-migration down <migration-version-name>
+npm run db-migration down <migration-version-name>
 ```
 
 If you want to create migration (follow [https://github.should typescript be a dev dependencycom/tj/node-migrate#creating-migrations](https://github.com/tj/node-migrate#creating-migrations)):
 ```
-yarn run db-migration create <name>
+npm run db-migration create <name>
 ```
 
 You can always check your current version in `.migrate` file or run:
 ```
-yarn run db-migration list
+npm run db-migration list
 ```
 
 ## Development setup
@@ -48,7 +56,7 @@ yarn run db-migration list
 To run dev environment:
 
 ```
-yarn run start
+npm run start
 ```
 
 ## Testing
@@ -56,12 +64,12 @@ yarn run start
 Test env is using Jest, if you want to run tests just call:
 
 ```
-yarn run test
+npm run test
 ```
 
 or (to run without watcher and with test coverage report)
 ```
-yarn run test-coverage
+npm run test-coverage
 ```
 
 ## Release History
