@@ -1,37 +1,50 @@
 import dotenv from 'dotenv';
+import fs from 'fs';
+import https from 'https';
 import Koa from 'koa';
-import DBConnection from './db';
+import path from 'path';
 
 import { HOST, PORT } from './constants/server';
 
 dotenv.config();
 const SERVER_PORT = process.env.SERVER_POST || PORT;
 const SERVER_HOST = process.env.SERVER_HOST || HOST;
-const app = new Koa();
+const server = new Koa();
 // const db = DBConnection();
 
-// Create a server with a host and port
-// const server = express({
-//   host: process.env.SERVER_HOST || 'localhost',
-//   port: process.env.SERVER_POST || 8000
-// });
-//
-// server.route(routes);
+const config = {
+  domain: 'localhost',
+  https: {
+    options: {
+      cert: fs.readFileSync(path.resolve(process.cwd(), 'server.crt'), 'utf8').toString(),
+      key: fs.readFileSync(path.resolve(process.cwd(), 'server.key'), 'utf8').toString(),
+    },
+    port: 7979,
+  },
+};
 
-app.use(ctx => {
+server.use(ctx => {
   ctx.body = 'test';
 });
 
+const serverCallback = server.callback();
 // Start the server
 async function start() {
   try {
-    app.listen(SERVER_PORT);
-  } catch (err) {
-    console.log(err);
-    process.exit(1);
+    const httpsServer = https.createServer(config.https.options, serverCallback);
+    httpsServer
+      .listen(config.https.port, (err: Error) => {
+        if (!!err) {
+          console.error('HTTPS server FAIL: ', err, (err && err.stack));
+        }
+        else {
+          console.log(`HTTPS server OK: https://${config.domain}:${config.https.port}`);
+        }
+      });
   }
-
-  console.log('Server running at:', app);
+  catch (ex) {
+    console.error('Failed to start HTTPS server\n', ex, (ex && ex.stack));
+  }
 }
 
 start();

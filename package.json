@@ -1,5 +1,5 @@
 {
-  "name": "hapi-blog-api-v2",
+  "name": "koa-typescript-babel-boilerplate",
   "version": "1.0.0",
   "description": "API for blog app",
   "main": "src/index.ts",
