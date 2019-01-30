@@ -1,8 +1,8 @@
 import dotenv from 'dotenv';
 import fs from 'fs';
-import path from 'path';
 import https from 'https';
 import Koa from 'koa';
+import path from 'path';
 
 import { HOST, PORT } from './constants/server';
 
