@@ -41,7 +41,7 @@ If you want to downgrade to version use:
 npm run db-migration down <migration-version-name>
 ```
 
-If you want to create migration (follow [https://github.should typescript be a dev dependencycom/tj/node-migrate#creating-migrations](https://github.com/tj/node-migrate#creating-migrations)):
+If you want to create migration (follow [ttps://github.com/tj/node-migrate#creating-migrations](https://github.com/tj/node-migrate#creating-migrations)):
 ```
 npm run db-migration create <name>
 ```
