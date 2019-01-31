@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-import dotenv from 'dotenv';
+const dotenv = require('dotenv');
 dotenv.config();
 
 // Make sure any symlinks in the project folder are resolved:
